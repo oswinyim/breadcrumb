@@ -40,20 +40,20 @@ export default function App() {
    */
   const getBreadcrumbNameMap = (data, prevKey = "", pl = 0) => {
     let result = {};
-    if (data?.type === "dir") {
-      for (const property in data.children) {
-        const resultKey = prevKey + "/" + property;
-        result[resultKey] = { value: property, pl: pl + 4 };
-        result = {
-          ...result,
-          ...getBreadcrumbNameMap(
-            data.children[property],
-            prevKey + "/" + property,
-            pl + 4
-          ),
-        };
-      }
+
+    for (const property in data.children) {
+      const resultKey = prevKey + "/" + property;
+      result[resultKey] = { value: property, pl: pl + 4 };
+      result = {
+        ...result,
+        ...getBreadcrumbNameMap(
+          data.children[property],
+          prevKey + "/" + property,
+          pl + 4
+        ),
+      };
     }
+  
     return result;
   };
 
