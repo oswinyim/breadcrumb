@@ -33,11 +33,10 @@ export default function App() {
 
   /**
    *
-   * @param {*} data root or root.children
-   * @param {*} prevKey eg '/home/myname'
-   * @param {*} pl paddingLeft
+   * @param {object} data root or root.children
+   * @param {string} prevKey eg '/home/myname'
+   * @param {number} pl paddingLeft
    * @returns eg {'/home': {value : 'home' , pl: '4'}}
-   * @example
    */
   const getBreadcrumbNameMap = (data, prevKey = "", pl = 0) => {
     let result = {};
